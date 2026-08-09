@@ -1,0 +1,6 @@
+agno==2.8.7
+lancedb
+fastembed
+openai
+pypdf
+streamlit

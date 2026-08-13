@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>遥感知识问答 · AI 知识库</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="login-mask" class="hidden">
+    <div class="login-card">
+      <h2>遥感知识问答</h2>
+      <p class="login-sub">私有知识库 · AI 问答系统</p>
+      <input id="token-input" type="password" placeholder="请输入访问令牌" autocomplete="off">
+      <button id="login-btn">进入</button>
+      <p id="login-error" class="error-text hidden">令牌错误,请重试</p>
+    </div>
+  </div>
+
+  <div id="app" class="hidden">
+    <aside id="sidebar">
+      <div class="sidebar-brand">
+        <h1>遥感知识库</h1>
+        <p>DeepSeek · 本地向量检索</p>
+      </div>
+      <button id="new-session-btn" class="new-session">+ 新建会话</button>
+      <div class="sidebar-label">历史会话</div>
+      <ul id="session-list"></ul>
+      <div class="sidebar-footer">
+        <button id="docs-btn" class="ghost-btn">知识库文档</button>
+      </div>
+    </aside>
+
+    <main id="chat-area">
+      <div id="messages"></div>
+      <div id="typing" class="hidden">正在检索知识库<span class="dots"><span>.</span><span>.</span><span>.</span></span></div>
+      <form id="chat-form">
+        <textarea id="question" rows="1" placeholder="输入问题,例如:NDVI 的计算公式是什么?" maxlength="20000"></textarea>
+        <button type="submit" id="send-btn" disabled>发送</button>
+      </form>
+      <p class="chat-hint">回答基于本地知识库,并附引用来源 · Enter 发送,Shift+Enter 换行</p>
+    </main>
+  </div>
+
+  <div id="docs-panel" class="hidden">
+    <div class="docs-card">
+      <div class="docs-head">
+        <h2>知识库文档</h2>
+        <button id="docs-close" class="close-btn">×</button>
+      </div>
+      <ul id="docs-list"></ul>
+      <div class="docs-actions">
+        <label class="upload-btn">
+          上传文档(.txt / .md / .pdf)
+          <input id="docs-upload" type="file" accept=".txt,.md,.pdf" hidden>
+        </label>
+        <button id="docs-rebuild" class="ghost-btn">重建向量库</button>
+      </div>
+      <p id="docs-status" class="docs-status"></p>
+    </div>
+  </div>
+
+  <div id="toast" class="hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

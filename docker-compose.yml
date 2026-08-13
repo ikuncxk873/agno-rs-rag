@@ -1,0 +1,26 @@
+services:
+  rag:
+    build: .
+    ports:
+      - "8002:8000"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # 容器内直连 LLM API 被墙,走 Windows 主机代理(VPN)出网
+      HTTP_PROXY: http://host.docker.internal:7892
+      HTTPS_PROXY: http://host.docker.internal:7892
+      NO_PROXY: localhost,127.0.0.1
+    volumes:
+      - ./knowledge:/app/knowledge
+      - rag_data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    restart: unless-stopped
+
+volumes:
+  rag_data:

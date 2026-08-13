@@ -1,6 +1,9 @@
 agno==2.8.7
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic-settings
 lancedb
 fastembed
-openai
+openai==2.48.0
 pypdf
-streamlit

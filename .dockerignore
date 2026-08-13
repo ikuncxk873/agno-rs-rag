@@ -1,0 +1,11 @@
+.venv/
+data/
+__pycache__/
+*.pyc
+.git/
+tests/
+.env
+app.py
+test_query.py
+README.md
+acceptance-checklist.md

@@ -1,16 +1,28 @@
 import os
+from typing import Optional
 
 from agno.agent import Agent
 from agno.models.deepseek import DeepSeek
+from agno.models.openai import OpenAIChat
 
+from app.config import get_settings
 from kb_build import create_knowledge
 
 
-def create_agent() -> Agent:
-    os.environ.setdefault("DEEPSEEK_API_KEY", os.environ.get("ANTHROPIC_AUTH_TOKEN", ""))
+def create_agent(model_id: Optional[str] = None) -> Agent:
+    settings = get_settings()
+    os.environ.setdefault("DEEPSEEK_API_KEY", settings.resolved_api_key)
+    if settings.gptgod_api_key:
+        model = OpenAIChat(
+            id=settings.gptgod_model,
+            api_key=settings.gptgod_api_key,
+            base_url=settings.gptgod_base_url,
+        )
+    else:
+        model = DeepSeek(id=model_id or settings.deepseek_model)
     return Agent(
         name="遥感知识问答助手",
-        model=DeepSeek(id="deepseek-v4-flash"),
+        model=model,
         knowledge=create_knowledge(),
         search_knowledge=True,
         instructions=[

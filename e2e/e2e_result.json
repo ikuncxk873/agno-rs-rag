@@ -1,0 +1,72 @@
+[
+  {
+    "name": "#8a 无token显示登录页",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "#8b 错token提示失败",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "#8c 正确token进入应用",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "#5 会话列表加载(持久化)",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "#1 空输入发送按钮禁用",
+    "ok": true,
+    "detail": "disabled=true"
+  },
+  {
+    "name": "#1b 输入后按钮可用",
+    "ok": true,
+    "detail": "disabled=false"
+  },
+  {
+    "name": "#3 回答中发送按钮禁用",
+    "ok": true,
+    "detail": "disabled=true"
+  },
+  {
+    "name": "#3b 流式delta渲染",
+    "ok": true,
+    "detail": "测试文字 我 AI  这是模拟的流式回答  来源: 三北防护林遥感监测技术要点.txt"
+  },
+  {
+    "name": "#3c 完成后按钮恢复",
+    "ok": true,
+    "detail": "disabled=false"
+  },
+  {
+    "name": "#7 引用标签渲染",
+    "ok": true,
+    "detail": "source-tag"
+  },
+  {
+    "name": "#4 断网显示错误条不白屏",
+    "ok": true,
+    "detail": "Failed to fetch"
+  },
+  {
+    "name": "#10 上游异常错误条显示",
+    "ok": true,
+    "detail": "Request timed out."
+  },
+  {
+    "name": "#10b 页面不白屏",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "name": "#7b 文档列表显示",
+    "ok": true,
+    "detail": "14 项"
+  }
+]
